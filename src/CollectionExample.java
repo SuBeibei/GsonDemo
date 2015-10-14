@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class CollectionExample {
     public static void main(String[] args) {
-        Gson gson = new Gson();
+        final Gson gson = new Gson();
 
         // Serialization
         List<Integer> list = new ArrayList<>();
@@ -26,11 +26,11 @@ public class CollectionExample {
 
 
         // Deserialization
-        String listStr = "[1,2,3]";
+        final String listStr = "[1,2,3]";
 
         System.out.println(gson.fromJson(listStr, List.class));
 
-        Type listType = new TypeToken<List<Integer>>(){}.getType();
+        final Type listType = new TypeToken<List<Integer>>(){}.getType();
         list = gson.fromJson(listStr, listType);
         System.out.println(list);
 
@@ -38,7 +38,7 @@ public class CollectionExample {
 
         System.out.println(gson.fromJson(mapStr, Map.class));
 
-        Type mapType = new TypeToken<Map<String, Integer>>(){}.getType();
+        final Type mapType = new TypeToken<Map<String, Integer>>(){}.getType();
         map = gson.fromJson(mapStr, mapType);
         System.out.println(map);
     }

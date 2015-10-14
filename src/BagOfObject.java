@@ -40,14 +40,14 @@ public class BagOfObject {
     }
 
     public static void main(String[] args) {
-        Gson gson = new Gson();
+        final Gson gson = new Gson();
 
         // Serialization
-        BagOfObject obj = new BagOfObject();
+        final BagOfObject obj = new BagOfObject();
         System.out.println(gson.toJson(obj));
 
         // Deserialization
-        String str = "{\"value1\":1,\"value2\":\"abc\",\"value3\":3,\"value4\":true,\"value5\":1.0,\"value6\":2.0,\"value7\":[1,2,3],\"value8\":[4,5,6],\"value9\":{\"1\":\"a\",\"2\":\"b\",\"3\":\"c\"}}";
+        final String str = "{\"value1\":1,\"value2\":\"abc\",\"value3\":3,\"value4\":true,\"value5\":1.0,\"value6\":2.0,\"value7\":[1,2,3],\"value8\":[4,5,6],\"value9\":{\"1\":\"a\",\"2\":\"b\",\"3\":\"c\"}}";
         System.out.println(gson.fromJson(str, BagOfObject.class).toString());
     }
 }

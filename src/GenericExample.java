@@ -17,7 +17,7 @@ public class GenericExample {
         String name = "bar";
     }
     public static void main(String[] args) {
-        Gson gson = new Gson();
+        final Gson gson = new Gson();
 
         // Serialization
         Foo<String> foo1 = new Foo<>("abc");
@@ -27,8 +27,8 @@ public class GenericExample {
         System.out.println(gson.toJson(foo2, new TypeToken<Foo<Bar>>(){}.getType()));
 
         // Deserialization
-        String str1 = "{\"value\":\"abc\"}";
-        String str2 = "{\"value\":{\"name\":\"bar\"}}";
+        final String str1 = "{\"value\":\"abc\"}";
+        final String str2 = "{\"value\":{\"name\":\"bar\"}}";
         foo1 = gson.fromJson(str1, new TypeToken<Foo<String>>(){}.getType());
         System.out.println(foo1);
         foo2 = gson.fromJson(str2, new TypeToken<Foo<Bar>>(){}.getType());

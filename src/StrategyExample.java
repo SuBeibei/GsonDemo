@@ -63,13 +63,13 @@ public class StrategyExample {
     }
 
     public static void main(String[] args) {
-        Bar bar = new Bar("name1", "name3", "name4");
-        A a = new A();
+        final Bar bar = new Bar("name1", "name3", "name4");
+        final A a = new A();
 
-        Gson gson1 = new GsonBuilder().excludeFieldsWithModifiers().create();
-        Gson gson2 = new Gson();
-        Gson gson3 = new GsonBuilder().excludeFieldsWithModifiers(Modifier.VOLATILE).create();
-        Gson gson4 = new GsonBuilder().setExclusionStrategies(new MyExclusionStrategy(A.class)).create();
+        final Gson gson1 = new GsonBuilder().excludeFieldsWithModifiers().create();
+        final Gson gson2 = new Gson();
+        final Gson gson3 = new GsonBuilder().excludeFieldsWithModifiers(Modifier.VOLATILE).create();
+        final Gson gson4 = new GsonBuilder().setExclusionStrategies(new MyExclusionStrategy(A.class)).create();
 
 
         // Serialization
@@ -80,7 +80,7 @@ public class StrategyExample {
         System.out.println(gson4.toJson(a));
 
         // Deserialization
-        String str = "{\"name1\":\"name1\",\"name2\":\"name2\",\"name3\":\"name3\",\"name4\":\"name4\"}";
+        final String str = "{\"name1\":\"name1\",\"name2\":\"name2\",\"name3\":\"name3\",\"name4\":\"name4\"}";
         System.out.println(gson2.fromJson(str, Bar.class));
         System.out.println(gson1.fromJson(str, Bar.class));
         System.out.println(gson3.fromJson(str, Bar.class));

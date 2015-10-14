@@ -21,14 +21,14 @@ public class ExtendExample {
     }
 
     public static void main(String[] args) {
-        Gson gson = new Gson();
+        final Gson gson = new Gson();
 
         // Serialization
-        Child child = new Child(3);
+        final Child child = new Child(3);
         System.out.println(gson.toJson(child));
 
         // Deserialization
-        String str = "{\"value1\":1,\"value2\":2}";
+        final String str = "{\"value1\":1,\"value2\":2}";
         System.out.println(gson.fromJson(str, Child.class).toString());
     }
 }

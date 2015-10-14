@@ -19,21 +19,21 @@ public class NullExample {
     }
 
     public static void main(String[] args) {
-        Foo foo = new Foo();
+        final Foo foo = new Foo();
 
-        Gson gson1 = new Gson();
-        Gson gson2 = new GsonBuilder().serializeNulls().create();
+        final Gson gson1 = new Gson();
+        final Gson gson2 = new GsonBuilder().serializeNulls().create();
 
         // Serialization
         System.out.println(gson1.toJson(foo));
         System.out.println(gson2.toJson(foo));
 
         // Deserialization
-        String str1 = "{\"num\":5}";
+        final String str1 = "{\"num\":5}";
         System.out.println(gson1.fromJson(str1, Foo.class));
         System.out.println(gson2.fromJson(str1, Foo.class));
 
-        String str2 = "{\"str\":null,\"num\":5}";
+        final String str2 = "{\"str\":null,\"num\":5}";
         System.out.println(gson1.fromJson(str2, Foo.class));
         System.out.println(gson2.fromJson(str2, Foo.class));
     }
