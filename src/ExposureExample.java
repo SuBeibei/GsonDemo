@@ -21,29 +21,29 @@ public class ExposureExample {
         final Account otherAccount = gson.fromJson(accountStr, Account.class);
         System.out.println(otherAccount);
     }
-}
 
-class Account {
-    @Expose(deserialize = false)
-    public String accountNumber;
+    static class Account {
+        @Expose(deserialize = false)
+        public String accountNumber;
 
-    @Expose
-    public String iban;
+        @Expose
+        public String iban;
 
-    @Expose(serialize = false)
-    public String owner;
+        @Expose(serialize = false)
+        public String owner;
 
-    @Expose(serialize = false, deserialize = false)
-    public String address;
+        @Expose(serialize = false, deserialize = false)
+        public String address;
 
-    public String pin;
+        public String pin;
 
-    @Override
-    public String toString() {
-        return  "accountNumber: " + accountNumber + "\n" +
-                "iban: " + iban + "\n" +
-                "owner: " + owner + "\n" +
-                "address: " + address + "\n" +
-                "pin: " + pin;
+        @Override
+        public String toString() {
+            return  "accountNumber: " + accountNumber + "\n" +
+                    "iban: " + iban + "\n" +
+                    "owner: " + owner + "\n" +
+                    "address: " + address + "\n" +
+                    "pin: " + pin;
+        }
     }
 }

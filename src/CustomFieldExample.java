@@ -17,31 +17,32 @@ public class CustomFieldExample {
         final Box otherBox = gson.fromJson(json, Box.class);
         System.out.printf("Some box: %s%n", box.equals(otherBox));
     }
-}
 
-class Box {
-    @SerializedName("w")
-    int width;
+    static class Box {
+        @SerializedName("w")
+        int width;
 
-    @SerializedName("h")
-    int height;
+        @SerializedName("h")
+        int height;
 
-    @SerializedName("d")
-    int depth;
+        @SerializedName("d")
+        int depth;
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Box) {
-            Box box = (Box)obj;
-            return box.width==this.width && box.height==this.height && box.depth==this.depth;
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Box) {
+                Box box = (Box)obj;
+                return box.width==this.width && box.height==this.height && box.depth==this.depth;
+            }
+            return false;
         }
-        return false;
-    }
 
-    @Override
-    public int hashCode() {
-        return  Integer.valueOf(this.width).hashCode() +
-                Integer.valueOf(this.height).hashCode() +
-                Integer.valueOf(this.depth).hashCode();
+        @Override
+        public int hashCode() {
+            return  Integer.valueOf(this.width).hashCode() +
+                    Integer.valueOf(this.height).hashCode() +
+                    Integer.valueOf(this.depth).hashCode();
+        }
     }
 }
+
